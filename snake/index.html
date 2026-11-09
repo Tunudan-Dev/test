@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Snake</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Snake</h1>
+  <p>Score : <span id="score">0</span></p>
+  <div id="game-container">
+    <canvas id="game-canvas" width="480" height="480"></canvas>
+    <div id="overlay" class="hidden">
+      <h2 id="overlay-title">Game Over</h2>
+      <p id="final-score"></p>
+      <p id="restart-hint">Appuyez sur Espace pour rejouer</p>
+    </div>
+  </div>
+  <p>Flèches ou ZQSD pour diriger, Espace pour rejouer après un game over.</p>
+  <script src="game.js"></script>
+</body>
+</html>

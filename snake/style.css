@@ -1,0 +1,91 @@
+/* style.css - Snake (spec §8.3 et §9) */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #0b1220;
+  color: #e5e7eb;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding: 12px;
+}
+
+/* Ligne du score (conteneur du span #score) */
+#score {
+  display: inline-block;
+  min-width: 2ch;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #86efac;
+}
+
+/* Conteneur positionne en relative : porte canvas + overlay */
+#game-container {
+  position: relative;
+  width: 480px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  line-height: 0;
+  border: 2px solid #1f2937;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #111827;
+}
+
+/* Canvas 480x480 (attributs width/height), mis a l'echelle sans debordement */
+#game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+}
+
+/* Calque game over : couvre tout le conteneur, centre */
+#overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  line-height: 1.3;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+#overlay-title {
+  margin: 0;
+  font-size: 2rem;
+  color: #ef4444;
+}
+
+#final-score {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #f9fafb;
+}
+
+#restart-hint {
+  margin: 0;
+  font-size: 1rem;
+  color: #d1d5db;
+}
+
+/* B1 (correctif) : la classe doit l'emporter sur #overlay { display:flex }.
+   Un simple .hidden (specificite plus faible qu'un #id) laisserait l'overlay visible. */
+.hidden,
+#overlay.hidden {
+  display: none !important;
+}
